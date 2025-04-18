@@ -1,10 +1,11 @@
 import { Card, CardContent, Divider, Typography } from '@mui/material';
+import React from 'react';
 
-const Balance = () => {
+const Balance: React.FC = () => {
 
-    const balance = 5000;
-    const income = 7000;
-    const expenses = 2000;
+    const balance: number = 5000;
+    const income: number = 7000;
+    const expenses: number = 2000;
 
     return (
         <Card>

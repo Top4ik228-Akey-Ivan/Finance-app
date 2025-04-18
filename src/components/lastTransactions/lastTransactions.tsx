@@ -8,11 +8,13 @@ import {
     ListItemText,
     Typography,
 } from '@mui/material';
+import React from 'react';
+import { ILastTransaction } from '../../types';
 
-const LastTransaction = () => {
-    const transactions = [
-        { title: 'Еда', amount: -50, date: '12.05.2024' },
-        { title: 'Зарплата', amount: 2000, date: '10.05.2024' },
+const LastTransaction: React.FC = () => {
+    const transactions: ILastTransaction[] = [
+        { title: 'Еда', amount: -50, date: new Date('12.05.2024') },
+        { title: 'Зарплата', amount: 2000, date: new Date('10.05.2024') },
     ];
 
     return (
@@ -38,7 +40,7 @@ const LastTransaction = () => {
                                 }
                                 secondary={
                                     <Typography variant="body2" color="text.secondary">
-                                        {tx.date}
+                                        {tx.date.toLocaleDateString()}
                                     </Typography>
                                 }
                             />

@@ -2,10 +2,11 @@ import { Box, Typography, Button} from '@mui/material';
 import Balance from '../../components/balance/Balance';
 import Diagram from '../../components/diagram/Diagram';
 import LastTransaction from '../../components/lastTransactions/lastTransactions';
+import React from 'react';
 
 ;
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
     return (
         <Box sx={{ p: 4 }}>
             <Typography variant="h4" gutterBottom>
@@ -19,7 +20,7 @@ const Dashboard = () => {
             {/* Последние операции */}
             <LastTransaction/>
             {/* Кнопка добавления */}
-            
+
             <Box textAlign="center">
                 <Button variant="contained" size="large">
                     Добавить операцию

@@ -1,16 +1,18 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+import { IPieData } from '../../types';
+import React from 'react';
 
-const Diagram = () => {
+const Diagram: React.FC = () => {
 
-    const pieData = [
+    const pieData: IPieData[] = [
         { name: 'Еда', value: 400 },
         { name: 'Транспорт', value: 300 },
         { name: 'Жильё', value: 800 },
         { name: 'Развлечения', value: 200 },
     ];
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const COLORS: string[] = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     return (
         <Card sx={{ height: '100%' }}>
