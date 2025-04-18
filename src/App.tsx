@@ -1,9 +1,12 @@
-function App() {
+import { Container } from '@mui/material';
+import Dashboard from './pages/dashboardPage/DashboardPage';
+
+const App = () => {
     return (
-        <>
-            <div>Test</div>
-        </>
+        <Container maxWidth='sm'>
+            <Dashboard/>
+        </Container>
     );
-}
+};
 
 export default App;
