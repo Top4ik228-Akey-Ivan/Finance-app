@@ -9,12 +9,13 @@ import {
     Typography,
 } from '@mui/material';
 import React from 'react';
-import { ILastTransaction } from '../../types';
+import { ITransaction } from '../../types';
 
 const LastTransaction: React.FC = () => {
-    const transactions: ILastTransaction[] = [
-        { title: 'Еда', amount: -50, date: new Date('12.05.2024') },
-        { title: 'Зарплата', amount: 2000, date: new Date('10.05.2024') },
+
+    const transactions: ITransaction[] = [
+        { id: 1, type: 'expense', category: 'Еда', amount: 50, date: '2024-12-04T21:00:00.000Z' },
+        { id: 2, type: 'income', category: 'Зарплата', amount: 2000, date: '2024-10-04T21:00:00.000Z' },
     ];
 
     return (
@@ -29,10 +30,10 @@ const LastTransaction: React.FC = () => {
                             <ListItemText
                                 primary={
                                     <Box display="flex" justifyContent="space-between" alignItems="center">
-                                        <Typography variant="body1">{tx.title}</Typography>
+                                        <Typography variant="body1">{tx.category}</Typography>
                                         <Chip
-                                            label={`${tx.amount > 0 ? '+' : ''}$${Math.abs(tx.amount)}`}
-                                            color={tx.amount > 0 ? 'success' : 'error'}
+                                            label={`${tx.type==='income' ? '+' : ''}$${tx.amount}`}
+                                            color={tx.type==='income' ? 'success' : 'error'}
                                             variant="outlined"
                                             size="small"
                                         />
@@ -40,7 +41,11 @@ const LastTransaction: React.FC = () => {
                                 }
                                 secondary={
                                     <Typography variant="body2" color="text.secondary">
-                                        {tx.date.toLocaleDateString()}
+                                        {new Date(tx.date).toLocaleString('ru-RU', {
+                                            day: '2-digit',
+                                            month: '2-digit',
+                                            year: 'numeric',
+                                        })}
                                     </Typography>
                                 }
                             />
