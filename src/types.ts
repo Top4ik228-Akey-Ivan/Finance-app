@@ -1,10 +1,18 @@
-export interface IPieData{
+export interface IPieData {
     name: string;
     value: number;
 }
 
-export interface ILastTransaction {
-    title: string;
+export interface ITransaction {
+    id: number;
+    category: string;
     amount: number;
-    date: Date;
+    date: string;
+    description?: string;  
+    type: 'income' | 'expense';
+};
+
+export interface IFilter {
+    categoryFilter: string;
+    dateFilter: string;
 }

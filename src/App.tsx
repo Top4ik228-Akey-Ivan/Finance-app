@@ -1,11 +1,16 @@
 import { Container } from '@mui/material';
-import Dashboard from './pages/dashboardPage/DashboardPage';
+import AppRouter from './components/appRouter/AppRouter';
+import NavigationBar from './components/navigationBar/NavigationBar';
+import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
     return (
-        <Container maxWidth='sm'>
-            <Dashboard/>
-        </Container>
+        <BrowserRouter>
+            <NavigationBar />
+            <Container maxWidth='sm'>
+                <AppRouter />
+            </Container>
+        </BrowserRouter>
     );
 };
 
