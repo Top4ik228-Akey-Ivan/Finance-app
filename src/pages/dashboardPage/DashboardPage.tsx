@@ -1,7 +1,7 @@
-import { Box, Typography, Button} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Balance from '../../components/balance/Balance';
 import Diagram from '../../components/diagram/Diagram';
-import LastTransaction from '../../components/lastTransactions/lastTransactions';
+import LastTransactions from '../../components/lastTransactions/lastTransactions';
 import React from 'react';
 
 ;
@@ -18,14 +18,8 @@ const Dashboard: React.FC = () => {
             {/* Круговая диаграмма */}
             <Diagram />
             {/* Последние операции */}
-            <LastTransaction/>
+            <LastTransactions/>
             {/* Кнопка добавления */}
-
-            <Box textAlign="center">
-                <Button variant="contained" size="large">
-                    Добавить операцию
-                </Button>
-            </Box>
         </Box>
     );
 };

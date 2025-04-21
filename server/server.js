@@ -12,8 +12,12 @@ let nextId = transactions.length + 1;
 
 // GET /transactions
 app.get('/transactions', (req, res) => {
-    res.json(transactions);
-});
+    const sortedTransactions = [...transactions].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    res.json(sortedTransactions);
+  });
+  
 
 // POST /transactions
 app.post('/transactions', (req, res) => {
@@ -45,7 +49,7 @@ app.delete('/transactions/:id', (req, res) => {
         return res.status(404).json({ error: 'Транзакция не найдена' });
     }
     transactions.splice(index, 1);
-    res.status(200).json({success: 'Запись успешно удалена'});
+    res.status(200).json({ success: 'Запись успешно удалена' });
 });
 
 // GET /summary — общий баланс, доходы, расходы
@@ -83,6 +87,20 @@ app.get('/expenses-by-category', (req, res) => {
 
     res.json(chartData);
 });
+
+app.get('/transactions/last', (req, res) => {
+    const lastIncome = [...transactions]
+      .filter(t => t.type === 'income')
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+  
+    const lastExpense = [...transactions]
+      .filter(t => t.type === 'expense')
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+  
+    // Вернуть только те, которые существуют
+    const result = [lastIncome, lastExpense].filter(Boolean);
+    res.json(result);
+  });  
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

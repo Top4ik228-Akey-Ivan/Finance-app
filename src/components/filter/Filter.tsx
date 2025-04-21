@@ -9,6 +9,7 @@ interface filterProps {
 };
 
 const Filter: React.FC<filterProps> = ({filter, setFilter, uniqueCategories}) => {
+
     return (
         <>
             <TextField
