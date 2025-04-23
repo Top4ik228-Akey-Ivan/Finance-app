@@ -4,7 +4,6 @@ import React from 'react';
 import { useGetExpensesByCategoryQuery } from '../../redux/services/transactionsApi';
 
 const Diagram: React.FC = () => {
-
     const { data, error } = useGetExpensesByCategoryQuery();
 
     const COLORS: string[] = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];

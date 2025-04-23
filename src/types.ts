@@ -4,8 +4,8 @@ export interface ITransaction {
     type: 'income' | 'expense';
     amount: number;
     date: string;
-    description?: string;  
-};
+    description?: string;
+}
 
 export interface IFilter {
     categoryFilter: string;
@@ -23,4 +23,19 @@ export interface ISummary {
 export interface IDiagramData {
     category: string;
     amount: number;
+}
+
+export interface ILineChartData extends IDiagramData {
+    date: string;
+}
+
+export interface IAnalytics {
+    barChartData: IDiagramData[];
+    lineChartData: ILineChartData[];
+}
+
+export interface ISelectedMonth {
+    label: string;
+    year: number;
+    month: number;
 }

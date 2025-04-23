@@ -4,8 +4,6 @@ import Diagram from '../../components/diagram/Diagram';
 import LastTransactions from '../../components/lastTransactions/lastTransactions';
 import React from 'react';
 
-;
-
 const Dashboard: React.FC = () => {
     return (
         <Box sx={{ p: 4 }}>
@@ -18,7 +16,7 @@ const Dashboard: React.FC = () => {
             {/* Круговая диаграмма */}
             <Diagram />
             {/* Последние операции */}
-            <LastTransactions/>
+            <LastTransactions />
             {/* Кнопка добавления */}
         </Box>
     );

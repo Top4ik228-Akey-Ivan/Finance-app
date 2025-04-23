@@ -1,18 +1,8 @@
-import {
-    Box,
-    Card,
-    CardContent,
-    Chip,
-    List,
-    ListItem,
-    ListItemText,
-    Typography,
-} from '@mui/material';
+import { Box, Card, CardContent, Chip, List, ListItem, ListItemText, Typography } from '@mui/material';
 import React from 'react';
 import { useGetLastTransactionsQuery } from '../../redux/services/transactionsApi';
 
 const LastTransaction: React.FC = () => {
-
     const { data, error } = useGetLastTransactionsQuery();
 
     return (

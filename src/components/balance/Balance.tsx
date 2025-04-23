@@ -3,8 +3,7 @@ import React from 'react';
 import { useGetSummaryQuery } from '../../redux/services/transactionsApi';
 
 const Balance: React.FC = () => {
-
-    const {data, error} = useGetSummaryQuery();
+    const { data, error } = useGetSummaryQuery();
 
     return (
         <Card>
@@ -16,7 +15,9 @@ const Balance: React.FC = () => {
                     ${data?.balance}
                 </Typography>
                 <Divider sx={{ my: 2 }} />
-                <Typography variant="body1" color='success'>Доходы: ${data?.income}</Typography>
+                <Typography variant="body1" color="success">
+                    Доходы: ${data?.income}
+                </Typography>
                 <Typography variant="body1" color="error">
                     Расходы: ${data?.expense}
                 </Typography>

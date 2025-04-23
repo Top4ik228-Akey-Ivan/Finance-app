@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-    Box,
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    MenuItem,
-    TextField
-} from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField } from '@mui/material';
 import { categoryOptions } from '../../constants/categories';
 import { useCreateTransactionMutation } from '../../redux/services/transactionsApi';
 
@@ -24,7 +15,6 @@ type FormState = {
     date: string;
     description: string;
 };
-
 
 const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isModalOpen, toggleModal }) => {
     const today = new Date().toISOString().split('T')[0];
@@ -50,8 +40,8 @@ const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isModalOpen, 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setForm(prev => ({ ...prev, [name]: value }));
-        setErrors(prev => ({ ...prev, [name]: false }));
+        setForm((prev) => ({ ...prev, [name]: value }));
+        setErrors((prev) => ({ ...prev, [name]: false }));
     };
 
     const handleSubmit = () => {
@@ -73,20 +63,14 @@ const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isModalOpen, 
         createTransaction({
             ...form,
             amount: Number(form.amount),
-            date: fullDateTime.toISOString()
+            date: fullDateTime.toISOString(),
         });
         toggleModal();
         setForm(initialForm);
     };
 
-
     return (
-        <Dialog
-            open={isModalOpen}
-            onClose={toggleModal}
-            fullWidth
-            maxWidth='xs'
-        >
+        <Dialog open={isModalOpen} onClose={toggleModal} fullWidth maxWidth="xs">
             <DialogTitle>Добавить транзакцию</DialogTitle>
             <DialogContent>
                 <Box display="flex" flexDirection="column" gap={2} mt={1}>

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IDiagramData, ISummary, ITransaction } from '../../types';
+import { IAnalytics, IDiagramData, ISummary, ITransaction } from '../../types';
 
 export const transactionsApi = createApi({
     reducerPath: 'transactionsApi',
@@ -26,17 +26,22 @@ export const transactionsApi = createApi({
             query: (transaction) => ({
                 url: 'transactions',
                 method: 'POST',
-                body: transaction
+                body: transaction,
             }),
             invalidatesTags: ['Transaction'],
-        })
-    })
+        }),
+        getAnalyticsByPeriod: builder.query<IAnalytics, { year: number; month: number }>({
+            query: ({ year, month }) => `/analytics?year=${year}&month=${month}`,
+            providesTags: ['Transaction'],
+        }),
+    }),
 });
 
-export const { 
+export const {
     useGetAllTransactionsQuery,
     useGetSummaryQuery,
     useGetExpensesByCategoryQuery,
     useGetLastTransactionsQuery,
     useCreateTransactionMutation,
+    useGetAnalyticsByPeriodQuery,
 } = transactionsApi;

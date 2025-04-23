@@ -1,8 +1,4 @@
-import {
-    Box,
-    Typography,
-    Button,
-} from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { useState } from 'react';
 import { IFilter } from '../../types';
 import Filter from '../../components/filter/Filter';
@@ -12,18 +8,18 @@ import { categoryOptions } from '../../constants/categories';
 import AddTransactionModal from '../../components/addTransactionModal/AddTransactionModal';
 
 const TransactionsPage = () => {
-
     const [filter, setFilter] = useState<IFilter>({ dateFilter: '', categoryFilter: '' });
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const { data, error } = useGetAllTransactionsQuery();
 
-    const filtered = data?.filter((tx) => {
-        return (
-            (!filter?.categoryFilter || tx.category === filter?.categoryFilter) &&
-            (!filter?.dateFilter || tx.date === filter?.dateFilter)
-        );
-    }) ?? [];
+    const filtered =
+        data?.filter((tx) => {
+            return (
+                (!filter?.categoryFilter || tx.category === filter?.categoryFilter) &&
+                (!filter?.dateFilter || tx.date === filter?.dateFilter)
+            );
+        }) ?? [];
 
     const uniqueCategories = categoryOptions;
 
@@ -54,7 +50,7 @@ const TransactionsPage = () => {
                 </Button>
             </Box>
 
-            <AddTransactionModal isModalOpen={isModalOpen} toggleModal={toggleModal}/>
+            <AddTransactionModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
         </Box>
     );
 };
