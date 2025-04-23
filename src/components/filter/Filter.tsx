@@ -6,9 +6,9 @@ interface filterProps {
     filter: IFilter;
     setFilter: (obj: IFilter) => void;
     uniqueCategories: string[];
-};
+}
 
-const Filter: React.FC<filterProps> = ({filter, setFilter, uniqueCategories}) => {
+const Filter: React.FC<filterProps> = ({ filter, setFilter, uniqueCategories }) => {
     return (
         <>
             <TextField

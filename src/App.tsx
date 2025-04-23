@@ -7,7 +7,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <NavigationBar />
-            <Container maxWidth='sm'>
+            <Container maxWidth="sm">
                 <AppRouter />
             </Container>
         </BrowserRouter>

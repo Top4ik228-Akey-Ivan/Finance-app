@@ -1,23 +1,25 @@
 import { Card, CardContent, Divider, Typography } from '@mui/material';
 import React from 'react';
+import { useGetSummaryQuery } from '../../redux/services/transactionsApi';
 
 const Balance: React.FC = () => {
-
-    const balance: number = 5000;
-    const income: number = 7000;
-    const expenses: number = 2000;
+    const { data, error } = useGetSummaryQuery();
 
     return (
         <Card>
+            {error && <Typography>Ошибка загрузки данных</Typography>}
+
             <CardContent>
                 <Typography variant="h6">Баланс</Typography>
                 <Typography variant="h5" color="primary">
-                    ${balance}
+                    ${data?.balance}
                 </Typography>
                 <Divider sx={{ my: 2 }} />
-                <Typography variant="body1" color='success'>Доходы: ${income}</Typography>
+                <Typography variant="body1" color="success">
+                    Доходы: ${data?.income}
+                </Typography>
                 <Typography variant="body1" color="error">
-                    Расходы: ${expenses}
+                    Расходы: ${data?.expense}
                 </Typography>
             </CardContent>
         </Card>
