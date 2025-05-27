@@ -3,7 +3,7 @@ import { IAnalytics, IDiagramData, ISummary, ITransaction } from '../../types';
 
 export const transactionsApi = createApi({
     reducerPath: 'transactionsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://finance-app-7qmz.onrender.com/' }),
     tagTypes: ['Transaction'],
     endpoints: (builder) => ({
         getAllTransactions: builder.query<ITransaction[], void>({
