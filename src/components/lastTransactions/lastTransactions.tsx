@@ -1,54 +1,50 @@
-import { Box, Card, CardContent, Chip, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Paper, Typography, List, ListItem, ListItemText, Chip, Box } from '@mui/material';
 import React from 'react';
 import { useGetLastTransactionsQuery } from '../../redux/services/transactionsApi';
 
-const LastTransaction: React.FC = () => {
+const LastTransactions: React.FC = () => {
     const { data, error } = useGetLastTransactionsQuery();
 
     return (
-        <Card>
-            <CardContent>
-                <Typography variant="h6" gutterBottom>
-                    Последние операции
-                </Typography>
+        <Paper className='card'>
+            <Typography variant="h6">
+                Последние операции
+            </Typography>
 
-                {error && <Typography>Ошибка зугрзки данных</Typography>}
+            {error && <Typography>Ошибка загрузки данных</Typography>}
 
-                <List>
-                    {data && data.length > 0 ? (
-                        data?.map((tx, idx) => (
-                            <ListItem key={idx} disableGutters>
-                                <ListItemText
-                                    primary={
-                                        <Box display="flex" justifyContent="space-between" alignItems="center">
-                                            <Typography variant="body1">{tx.category}</Typography>
-                                            <Chip
-                                                label={`${tx.type === 'income' ? '+' : ''}$${tx.amount}`}
-                                                color={tx.type === 'income' ? 'success' : 'error'}
-                                                variant="outlined"
-                                                size="small"
-                                            />
-                                        </Box>
-                                    }
-                                    secondary={
-                                        <Typography variant="body2" color="text.secondary">
-                                            {new Date(tx.date).toLocaleString('ru-RU', {
-                                                day: '2-digit',
-                                                month: '2-digit',
-                                                year: 'numeric',
-                                            })}
+            <List>
+                {data && data.length > 0 ? (
+                    data.map((tx, idx) => (
+                        <ListItem key={idx} disableGutters>
+                            <ListItemText
+                                primary={
+                                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                                        <Typography variant="body1" fontWeight={500}>
+                                            {tx.category}
                                         </Typography>
-                                    }
-                                />
-                            </ListItem>
-                        ))
-                    ) : (
-                        <Typography>Транзакций пока нет</Typography>
-                    )}
-                </List>
-            </CardContent>
-        </Card>
+                                        <Chip
+                                            label={`${tx.type === 'income' ? '+' : ''}$${tx.amount}`}
+                                            color={tx.type === 'income' ? 'success' : 'error'}
+                                            variant="outlined"
+                                            size="small"
+                                        />
+                                    </Box>
+                                }
+                                secondary={
+                                    <Typography variant='caption' color="text.secondary">
+                                        {new Date(tx.date).toLocaleDateString('ru-RU')}
+                                    </Typography>
+                                }
+                            />
+                        </ListItem>
+                    ))
+                ) : (
+                    <Typography>Транзакций пока нет</Typography>
+                )}
+            </List>
+        </Paper>
     );
 };
 
-export default LastTransaction;
+export default LastTransactions;

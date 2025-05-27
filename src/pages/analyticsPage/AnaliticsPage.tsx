@@ -29,7 +29,7 @@ const AnalyticsPage: React.FC = () => {
     };
 
     return (
-        <Paper sx={{ p: 2, m: 2 }}>
+        <Paper className='sectionPaper'>
             <MonthSelect handleMonthChange={handleMonthChange} selected={selected} />
 
             {!data?.lineChartData?.length && !data?.barChartData?.length ? (

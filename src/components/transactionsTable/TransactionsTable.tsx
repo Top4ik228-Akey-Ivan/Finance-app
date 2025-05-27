@@ -10,7 +10,7 @@ interface TransactionsTableProps {
 
 const TransactionsTable: React.FC<TransactionsTableProps> = ({ filtered }) => {
     return (
-        <Card>
+        <Card className='card'>
             <CardContent className={styles.tableContent}>
                 <Table>
                     <TableHead>

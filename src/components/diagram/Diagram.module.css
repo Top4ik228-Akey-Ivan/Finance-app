@@ -1,0 +1,10 @@
+ 
+  .errorText {
+    color: var(--text-error);
+    margin-bottom: 16px;
+  }
+  
+  .noDataText {
+    color: var(--text-secondary);
+  }
+  

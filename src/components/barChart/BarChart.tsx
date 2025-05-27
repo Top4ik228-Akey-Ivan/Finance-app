@@ -9,7 +9,7 @@ interface BarsChartProps {
 
 const BarsChart: React.FC<BarsChartProps> = ({ data }) => {
     return (
-        <Box>
+        <Box className='card'>
             <Typography variant="h6" gutterBottom>
                 Расходы по категориям
             </Typography>

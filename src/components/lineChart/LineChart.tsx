@@ -9,7 +9,7 @@ interface LinesChartProps {
 
 const LinesChart: React.FC<LinesChartProps> = ({ data }) => {
     return (
-        <Box mb={4}>
+        <Box className='card'>
             <Typography variant="h6" gutterBottom>
                 Доходы и расходы по дням
             </Typography>
