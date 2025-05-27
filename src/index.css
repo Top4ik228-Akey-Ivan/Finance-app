@@ -2,6 +2,21 @@
     display: none;
 }
 
+:root {
+    --primary-purple: rgb(186, 104, 200);
+    --primary-pink: #f48fb1;
+  
+    --card-bg: #ffffff;
+    --card-shadow: 0px 4px 20px rgba(186, 104, 200, 0.2);
+  
+    --text-error: #e23131;
+    --text-success: #146f17;
+    --text-secondary: #757575;
+
+    --card-radius: 16px;
+  }
+  
+
 * {
     margin: 0;
     padding: 0;
@@ -9,3 +24,22 @@
 
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.card {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow) !important;
+    border-radius: var(--card-radius) !important;
+    padding: 24px;
+  }
+
+  .sectionPaper {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-radius);
+    padding: 24px;
+    transition: box-shadow 0.3s ease;
+  }

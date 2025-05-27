@@ -1,0 +1,14 @@
+.navbarContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.link{
+    font-weight: bold;
+    color: white;
+}
+
+.activeLink{
+    color: #d883f7;
+    font-weight: bold;
+}

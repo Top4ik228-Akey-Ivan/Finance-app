@@ -1,4 +1,4 @@
-import { MenuItem, Select, TextField } from '@mui/material';
+import { Box, MenuItem, Select, TextField } from '@mui/material';
 import React from 'react';
 import { IFilter } from '../../types';
 
@@ -8,9 +8,10 @@ interface filterProps {
     uniqueCategories: string[];
 }
 
+
 const Filter: React.FC<filterProps> = ({ filter, setFilter, uniqueCategories }) => {
     return (
-        <>
+        <Box className='card'>
             <TextField
                 label="Фильтр по дате"
                 type="date"
@@ -33,7 +34,7 @@ const Filter: React.FC<filterProps> = ({ filter, setFilter, uniqueCategories }) 
                     </MenuItem>
                 ))}
             </Select>
-        </>
+        </Box>
     );
 };
 

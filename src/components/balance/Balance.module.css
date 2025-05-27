@@ -1,0 +1,25 @@
+.card {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow) !important;
+    border-radius: var(--card-radius) !important;
+    padding: 24px;
+  }
+  
+  .balanceAmount {
+    color: var(--primary-purple);
+    font-weight: 700;
+  }
+  
+  .income {
+    color: var(--text-success);
+  }
+  
+  .expense {
+    color: var(--text-error);
+  }
+  
+  .errorText {
+    color: var(--text-error);
+    margin-bottom: 16px;
+  }
+  
